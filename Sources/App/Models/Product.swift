@@ -9,8 +9,11 @@ import Fluent
 import Vapor
 import FluentPostgresDriver
 
+// MARK: - model
 
-final class product: Model, Content{
+
+final class Product: Model, Content{
+    //the schema is the table name in the database
     static let schema = "products"
     
     @ID (key: .id)
@@ -30,11 +33,11 @@ final class product: Model, Content{
     
     init(){  }
     
-    init(name : String, description : String, price : Double, packaging: Packaging){
+    init(name : String, description : String, price : Double, packaging: UUID){
         self.name = name
         self.description = description
         self.price = price
-        self.$packaging.id = packaging.id!
+        self.$packaging.id = packaging
     }
     
     

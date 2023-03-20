@@ -11,10 +11,12 @@ public func configure(_ app: Application) throws {
         hostname:"localhost",
         username: "postgres",
         password: "",
-        database:"plantsdb" ),
+        database:"productdb" ),
         as: .psql)
+   
 
-    app.migrations.add(CreateTodo())
+    app.migrations.add([CreatePackage(), CreateProduct()])
+    try app.autoMigrate().wait()
 
     // register routes
     try routes(app)
