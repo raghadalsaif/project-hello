@@ -17,6 +17,7 @@ struct CreatePackage : AsyncMigration  {
             .field("name", .string, .required)
             .field("description", .string, .required)
             .field("sustainabilityRating", .double, .required)
+            .create()
             
     }
 

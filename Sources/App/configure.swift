@@ -11,7 +11,7 @@ public func configure(_ app: Application) throws {
         hostname:"localhost",
         username: "postgres",
         password: "",
-        database:"productdb" ),
+        database:"pdb"),
         as: .psql)
    
 
